@@ -1083,7 +1083,7 @@ root@myvm:/home/azureuser# groupadd cse
         
 
 ```plaintext
-cat /etc/group
+root@myvm:/home/azureuser# cat /etc/group
 azureuser:x:1000:
 ssl-cert:x:123:
 pankaj:x:1001:
@@ -1202,7 +1202,7 @@ cat: softlinkfile1: No such file or directory
         
     * Both the original file and the hard link share the same **inode**.
         
-    * If you update \*\*‘\*\*file2’, then ‘backupfile2’ will also be updated — and the same happens if you modify ‘backupfile2’ — only if they are linked using a hard link.
+    * If you update ‘file2’, then ‘backupfile2’ will also be updated — and the same happens if you modify ‘backupfile2’ — only if they are linked using a hard link.
         
     
     ```plaintext
@@ -1449,52 +1449,55 @@ New Permission of the file to be provided : rwx r-x r--
     
 * for others: r--
     
-    **Method 1:** Numeric Mode
-    
-    * Each permission is represented by a number:
-        
-        * `rwx` = 4 + 2 + 1 = **7**
-            
-        * `r-x` = 4 + 0 + 1 = **5**
-            
-        * `r--` = 4 + 0 + 0 = **4**
-            
-            To apply these permissions to a file
-            
-        
-        ```plaintext
-        azureuser@myvm:~$ chmod 754 file1
-        azureuser@myvm:~$ ls -l
-        total 1
-        -rwxr-xr-- 1 azureuser azureuser     0 Jul 28 13:53 file1
-        ```
-        
-    
-    **Method 2:** Symbolic Mode
-    
-    * `u` → user (owner)
-        
-    * `g` → group
-        
-    * `o` → others
-        
-    * `+` → add permission
-        
-    * `-` → remove permission
-        
-    * `=` → set exact permission
-        
-        ```plaintext
-        azureuser@myvm:~$ chmod u-wx,g+w,o=wx file1
-        ```
-        
-    
-    **Method 3:** Assigning Specific Permissions
-    
-    ```plaintext
-    azureuser@myvm:~$ chmod u+r,g+rwx,o+x file1
-    ```
-    
+
+**Method 1:** Numeric Mode
+
+Each permission is represented by a number:
+
+`rwx` = 4 + 2 + 1 = **7**
+
+`r-x` = 4 + 0 + 1 = **5**
+
+`r--` = 4 + 0 + 0 = **4**
+
+To apply these permissions to a file
+
+```plaintext
+azureuser@myvm:~$ chmod 754 file1
+azureuser@myvm:~$ ls -l
+total 1
+-rwxr-xr-- 1 azureuser azureuser     0 Jul 28 13:53 file1
+```
+
+**Method 2:** Symbolic Mode
+
+`u` → user (owner)
+
+`g` → group
+
+`o` → others
+
+`+` → add permission
+
+`-` → remove permission
+
+`=` → set exact permission
+
+u = u-wx (
+
+g = g+w
+
+o= wx
+
+```plaintext
+azureuser@myvm:~$ chmod u-wx,g+w,o=wx file1
+```
+
+**Method 3:** Assigning Specific Permissions
+
+```plaintext
+azureuser@myvm:~$ chmod u+r,g+rwx,o+x file1
+```
 
 **🔄 How to Change Ownership**
 
