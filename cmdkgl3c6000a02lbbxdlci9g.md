@@ -328,6 +328,8 @@ dir1
 
 * **Creates nested directories in one command:** `mkdir -p dir6/dir7/dir8`
     
+    * p → parent directories
+        
 
 ```plaintext
 azureuser@myvm:~$ ls
@@ -456,7 +458,7 @@ I am Pankaj
 
 * Move a file: `mv file1 dir1`
     
-    * it is just like cut and paste like windows
+    * it is just like cut and paste in windows
         
     * mv → move
         
@@ -796,6 +798,8 @@ UBUNTU_CODENAME=jammy
 
 ## **📦 Software and Package Management**
 
+**Note**: I have used Apache2 as an example. Please feel free to replace it with the software of your choice.
+
 **In Ubuntu:**
 
 * Install software: `sudo apt install apache2 -y`
@@ -805,7 +809,7 @@ UBUNTU_CODENAME=jammy
 azureuser@myvm:~$ sudo apt install apache2 -y
 ```
 
-* Check if a software is installed: `which tomcat`
+* Check if a software is installed: `which apache2`
     
     * `which apache2` checks if the `apache2` binary is in your system's PATH.
         
@@ -960,50 +964,49 @@ apparmor/jammy-updates,jammy-security,now 3.0.4-2ubuntu2.4 amd64 [installed,auto
 ------- many more
 ```
 
-* **Question -1:** What is the **difference between** `start` and `enable` when managing the any software( eg: apache2 ) service
+**Question -1:** What is the **difference between** `start` and `enable` when managing the any software( eg: apache2 ) service
+
+**🔹** `start` – Start the Service **Now**
+
+* **Command:** `sudo systemctl start apache2`
     
-    * **🔹** `start` – Start the Service **Now**
-        
-        * **Command:** `sudo systemctl start apache2`
-            
-        * **What it does:** Immediately starts the Apache2 service.
-            
-        * **Effect:** Apache2 begins running **right now**, but it **won’t start automatically** after a reboot unless you also enable it.
-            
-        
-        **🔹** `enable` – Start the Service **on Boot**
-        
-        * **Command:** `sudo systemctl enable apache2`
-            
-        * **What it does:** Configures Apache2 to **start automatically** every time the system boots.
-            
-        * **Effect:** Doesn’t start the service immediately, just sets it to start on future reboots
-            
-        
-* \*\*Question -2:\*\*What is the **difference between** `stop` and `disable` when managing the any software( eg: apache2 ) service
+* **What it does:** Immediately starts the Apache2 service.
     
-    * **🔴** `stop` Apache2
-        
-        * **Command:** `sudo systemctl stop apache2`
-            
-        * **Effect:** Immediately stops the Apache2 service.
-            
-        * **Temporary:** Apache2 will **start again after a reboot** if it was enabled.
-            
-        * **Use case:** You want to temporarily stop the web server without changing its startup behavior.
-            
-        
-        **🚫** `disable` Apache2
-        
-        * **Command:** `sudo systemctl disable apache2`
-            
-        * **Effect:** Prevents Apache2 from starting **automatically at boot**.
-            
-        * **Does not stop** the currently running service.
-            
-        * **Use case:** You don’t want Apache2 to start automatically when the system reboots.
-            
-        
+* **Effect:** Apache2 begins running **right now**, but it **won’t start automatically** after a reboot unless you also enable it.
+    
+
+**🔹** `enable` – Start the Service **on Boot**
+
+* **Command:** `sudo systemctl enable apache2`
+    
+* **What it does:** Configures Apache2 to **start automatically** every time the system boots.
+    
+* **Effect:** Doesn’t start the service immediately, just sets it to start on future reboots
+    
+
+**Question -2:** What is the **difference between** `stop` and `disable` when managing the any software( eg: apache2 ) service
+
+**🔴** `stop` Apache2
+
+* **Command:** `sudo systemctl stop apache2`
+    
+* **Effect:** Immediately stops the Apache2 service.
+    
+* **Temporary:** Apache2 will **start again after a reboot** if it was enabled.
+    
+* **Use case:** You want to temporarily stop the web server without changing its startup behavior.
+    
+
+**🚫** `disable` Apache2
+
+* **Command:** `sudo systemctl disable apache2`
+    
+* **Effect:** Prevents Apache2 from starting **automatically at boot**.
+    
+* **Does not stop** the currently running service.
+    
+* **Use case:** You don’t want Apache2 to start automatically when the system reboots.
+    
 
 ---
 
@@ -1276,7 +1279,6 @@ Example: Imagine you have a **room** in your house where you keep your **bike**.
             
         * Pointers to data blocks (where the actual file content is stored
             
-    
 * Remove file content: `> file1`
     
 
@@ -1503,9 +1505,9 @@ Before assigning ownership, make sure the file or directory exists and that you 
     * before assigning owner: `azureuser`
         
     * ```plaintext
-          azureuser@myvm:~$ ls -l
-          total 1
-          -r--rwx-wx 1 azureuser azureuser     0 Jul 28 13:53 file1
+            azureuser@myvm:~$ ls -l
+            total 1
+            -r--rwx-wx 1 azureuser azureuser     0 Jul 28 13:53 file1
         ```
         
     * after assigning owner: `pankaj`
