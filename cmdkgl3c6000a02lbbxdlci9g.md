@@ -1556,6 +1556,10 @@ Before assigning ownership, make sure the file or directory exists and that you 
     
     * result will show: ----------
         
+    * This removes **all permissions** (read, write, and execute) for **user**, **group**, and **others**.
+        
+    * **Note:** No one, including the file owner, can access this file unless they are the root user. This is because only the **root user** can override file permission restrictions
+        
     
     ```plaintext
     azureuser@myvm:~$ sudo chmod 000 file1
