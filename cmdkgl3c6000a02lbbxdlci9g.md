@@ -1450,6 +1450,8 @@ New Permission of the file to be provided : rwx r-x r--
 * for others: r--
     
 
+**Note:** We can assign permissions in three ways. Please find the details below:
+
 **Method 1:** Numeric Mode
 
 Each permission is represented by a number:
@@ -1483,20 +1485,26 @@ total 1
 
 `=` → set exact permission
 
-u = u-wx (
+`u=rwx` → user gets read, write, and execute
 
-g = g+w
+`g=rx`→ group gets read and execute
 
-o= wx
+`o=r` → others get read
 
 ```plaintext
-azureuser@myvm:~$ chmod u-wx,g+w,o=wx file1
+azureuser@myvm:~$ chmod u=rwx,g=rx,o=r file1
 ```
 
 **Method 3:** Assigning Specific Permissions
 
+`u+rwx` → user gets read, write, and execute
+
+`g+rx` → group gets read and execute
+
+`o+r` → others get read
+
 ```plaintext
-azureuser@myvm:~$ chmod u+r,g+rwx,o+x file1
+azureuser@myvm:~$ chmod u+rwx,g+rx,o+r file1
 ```
 
 **🔄 How to Change Ownership**
@@ -1508,9 +1516,9 @@ Before assigning ownership, make sure the file or directory exists and that you 
     * before assigning owner: `azureuser`
         
     * ```plaintext
-            azureuser@myvm:~$ ls -l
-            total 1
-            -r--rwx-wx 1 azureuser azureuser     0 Jul 28 13:53 file1
+              azureuser@myvm:~$ ls -l
+              total 1
+              -r--rwx-wx 1 azureuser azureuser     0 Jul 28 13:53 file1
         ```
         
     * after assigning owner: `pankaj`
@@ -1611,8 +1619,18 @@ Before assigning ownership, make sure the file or directory exists and that you 
     
     **Example:** View OS Release Info : `cat /etc/os-rel*`
     
-    * `*` is a wildcard that matches any characters.
+    * `*` is a wildcard that matches any number of characters. It can be used to match filenames that start with specific characters, such as the first three characters `rel`.
         
+        It will match files like:
+        
+        * `rel`
+            
+        * `rel1.txt`
+            
+        * `rel_report.doc`
+            
+        * `rel123data.csv`
+            
     * This command reads all files starting with `os-rel` in the `/etc` directory.
         
     * Typically, it displays the content of `/etc/os-release`, which contains information about your Linux distribution.
