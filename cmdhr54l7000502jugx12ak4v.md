@@ -5,8 +5,8 @@ seoDescription: "Unix to Linux evolution: Open-source growth, Linus Torvalds' in
 datePublished: Thu Jul 24 2025 18:54:54 GMT+0000 (Coordinated Universal Time)
 cuid: cmdhr54l7000502jugx12ak4v
 slug: from-unix-to-linux-the-evolution-of-open-source
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1753382806078/591cc606-60de-45c5-95ad-c01177faae11.jpeg
-ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1753721812794/1e1a14ab-0fc6-4ff3-b509-6eda7afa447c.jpeg
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1754394222780/e37054fb-a34c-4115-91fc-2c141b021520.jpeg
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1754394285496/66675ae0-448e-4984-abae-433fa4a87449.jpeg
 tags: unix, operating-system, linux, opensource, devops, gnu, tech-history
 
 ---
